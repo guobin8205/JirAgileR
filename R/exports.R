@@ -512,6 +512,7 @@ get_jira_issues <- function(domain=NULL,
                             maxResults=50,
                             verbose=FALSE,
                             as.data.frame=TRUE){
+  print(domain)
   credentials<-get_jira_credentials()
   if(is.null(domain) && !is.null(credentials)){
     domain<-credentials$DOMAIN
@@ -548,6 +549,7 @@ get_jira_issues <- function(domain=NULL,
 
 
   url <- httr::parse_url(url)
+  print(url)
   #Prepare for pagination of calls
   if(verbose){message("Preparing for API Calls. Due to pagination this might take a while.")}
   issue_list <- list()
